@@ -11,7 +11,9 @@ class Account(handle: String, username: String) : Serializable {
     @GeneratedValue
     val id: Long = 0
 
-    @Column(unique = true, length = 32)
+    @Column(unique = true)
+    @NotBlank
+    @Size(min = 3, max = 32)
     var handle = handle
 
     @NotBlank
