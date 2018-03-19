@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kwetter.iml" filepath="$PROJECT_DIR$/kwetter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kwetter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kwetter_main.iml" group="kwetter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kwetter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kwetter_test.iml" group="kwetter" />
+    </modules>
+  </component>
+</project>
