@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=kwetter
+      - POSTGRES_USER=kwetter
+      - POSTGRES_PASSWORD=E24Hhla1xEy4UGXcJ0mGb9dMhVLxrrrl
