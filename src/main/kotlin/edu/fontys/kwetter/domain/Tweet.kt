@@ -6,17 +6,17 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 @Entity
-class Tweet(
-        @get: NotBlank
-        @get: Size(max = 140)
-        val content: String
-) : Serializable {
+class Tweet(author: Account, content: String) : Serializable {
     @Id
     @GeneratedValue
     val id: Long = 0
 
     @ManyToOne(optional = false)
-    lateinit var author: Account;
+    val author = author
+
+    @NotBlank
+    @Size(max = 140)
+    val content = content
 
     @ManyToMany(mappedBy = "liked")
     val likes: MutableSet<Account> = mutableSetOf()
