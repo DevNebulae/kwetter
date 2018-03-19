@@ -6,26 +6,28 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 @Entity
-class Account(
-        @get: Column(unique = true, length = 32)
-        var handle: String,
-
-        @get: NotBlank
-        @get: Size(max = 48)
-        var username: String,
-
-        var password: String
-) : Serializable {
+class Account(handle: String, username: String) : Serializable {
     @Id
     @GeneratedValue
     val id: Long = 0
 
+    @Column(unique = true, length = 32)
+    var handle = handle
+
+    @NotBlank
+    @Size(max = 48)
+    var username = username
+
+    @Size(max = 140)
     var biography: String? = null
 
+    @Size(max = 64)
     var location: String? = null
 
+    @Size(max = 64)
     var photoURL: String? = null
 
+    @Size(max = 64)
     var websiteURL: String? = null
 
     @ManyToMany(mappedBy = "following")
@@ -35,7 +37,7 @@ class Account(
     val following: MutableSet<Account> = mutableSetOf()
 
     @ManyToMany
-    val likes: MutableSet<Tweet> = mutableSetOf()
+    val liked: MutableSet<Tweet> = mutableSetOf()
 
     @OneToMany
     val tweets: MutableList<Tweet> = mutableListOf()
