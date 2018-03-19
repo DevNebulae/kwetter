@@ -1,10 +1,7 @@
 package edu.fontys.kwetter.domain
 
 import java.io.Serializable
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.ManyToOne
+import javax.persistence.*
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
@@ -17,4 +14,10 @@ class Tweet(
     @Id
     @GeneratedValue
     val id: Long = 0
+
+    @ManyToOne(optional = false)
+    lateinit var author: Account;
+
+    @ManyToMany(mappedBy = "liked")
+    val likes: MutableSet<Account> = mutableSetOf()
 }
