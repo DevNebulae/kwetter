@@ -1,7 +1,9 @@
-package edu.fontys.kwetter.domain
+package edu.fontys.kwetter.tweet
 
-import edu.fontys.kwetter.repositories.AccountRepository
-import edu.fontys.kwetter.repositories.TweetRepository
+import edu.fontys.kwetter.account.Account
+import edu.fontys.kwetter.account.AccountRepository
+import edu.fontys.kwetter.tweet.TweetRepository
+import edu.fontys.kwetter.tweet.Tweet
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith

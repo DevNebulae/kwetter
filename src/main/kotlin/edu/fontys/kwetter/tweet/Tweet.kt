@@ -1,5 +1,6 @@
-package edu.fontys.kwetter.domain
+package edu.fontys.kwetter.tweet
 
+import edu.fontys.kwetter.account.Account
 import java.io.Serializable
 import javax.persistence.*
 import javax.validation.constraints.NotBlank

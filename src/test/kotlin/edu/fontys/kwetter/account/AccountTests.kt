@@ -1,6 +1,5 @@
-package edu.fontys.kwetter.domain
+package edu.fontys.kwetter.account
 
-import edu.fontys.kwetter.repositories.AccountRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
