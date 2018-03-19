@@ -33,4 +33,10 @@ class Account(
 
     @ManyToMany
     val following: MutableSet<Account> = mutableSetOf()
+
+    @ManyToMany
+    val likes: MutableSet<Tweet> = mutableSetOf()
+
+    @OneToMany
+    val tweets: MutableList<Tweet> = mutableListOf()
 }
