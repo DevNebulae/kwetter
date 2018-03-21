@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 @Entity
-class Account(handle: String, username: String) : Serializable {
+class Account(handle: String, username: String, password: String) : Serializable {
     @Id
     @GeneratedValue
     val id: Long = 0
@@ -20,6 +20,9 @@ class Account(handle: String, username: String) : Serializable {
     @NotBlank
     @Size(max = 48)
     var username = username
+
+    @Transient
+    var password = password
 
     @Size(max = 140)
     var biography: String? = null
