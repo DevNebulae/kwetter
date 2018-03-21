@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kwetter - Registration</title>
+    </head>
+
+    <body>
+        <h1>Registration</h1>
+
+        <form th:action="@{/register}" th:object="${account}" method="POST" enctype="utf8">
+            <label>Handle <input th:field="*{handle}"/></label>
+            <label>Username <input th:field="*{username}"/></label>
+
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>
