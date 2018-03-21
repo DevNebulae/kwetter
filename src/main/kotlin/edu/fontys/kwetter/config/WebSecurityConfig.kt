@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 
-
-
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfig : WebSecurityConfigurerAdapter() {
@@ -25,10 +23,8 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
                 .authorizeRequests()
-                .antMatchers("/**/*.html", "/**/*.css", "/favicon.ico", "/register")
-                .permitAll()
-                .anyRequest()
-                .hasRole(AccountRole.ADMIN.toString())
+                .antMatchers("!register/**")
+                .hasRole(AccountRole.USER.toString())
                 .and()
                 .formLogin()
                 .loginPage("/login")
