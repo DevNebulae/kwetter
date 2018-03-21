@@ -5,4 +5,5 @@ import java.util.*
 
 interface AccountRepository : JpaRepository<Account, Long> {
     fun findByHandle(handle: String): Optional<Account>
+    fun findByHandleIgnoreCase(handle: String): Optional<Account>
 }
