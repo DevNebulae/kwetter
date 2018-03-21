@@ -4,6 +4,7 @@ import edu.fontys.kwetter.account.role.AccountRole
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
+import javax.transaction.Transactional
 
 @Service
 class AccountService {
@@ -21,6 +22,8 @@ class AccountService {
     }
 
     fun register(dto: AccountDto): Account {
+        repository.findByHandleIgnoreCase(dto.handle).ifPresent({ throw Error("Handle is already in use.") })
+
         val account = Account(dto.handle, dto.username, passwordEncoder.encode(dto.password))
         account.roles.add(AccountRole.USER)
 
