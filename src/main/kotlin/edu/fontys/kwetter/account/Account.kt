@@ -1,5 +1,6 @@
 package edu.fontys.kwetter.account
 
+import edu.fontys.kwetter.account.role.AccountRole
 import edu.fontys.kwetter.tweet.Tweet
 import java.io.Serializable
 import javax.persistence.*
@@ -7,22 +8,22 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 @Entity
-class Account(handle: String, username: String, password: String) : Serializable {
+class Account(
+        @field: Column(unique = true)
+        @field: NotBlank
+        @field: Size(min = 3, max = 32)
+        val handle: String,
+
+        @field: NotBlank
+        @field: Size(max = 48)
+        val username: String,
+
+        @field: NotBlank
+        val password: String
+) : Serializable {
     @Id
     @GeneratedValue
     val id: Long = 0
-
-    @Column(unique = true)
-    @NotBlank
-    @Size(min = 3, max = 32)
-    var handle = handle
-
-    @NotBlank
-    @Size(max = 48)
-    var username = username
-
-    @Transient
-    var password = password
 
     @Size(max = 140)
     var biography: String? = null
@@ -47,4 +48,7 @@ class Account(handle: String, username: String, password: String) : Serializable
 
     @OneToMany
     val tweets: MutableList<Tweet> = mutableListOf()
+
+    @ElementCollection(targetClass = AccountRole::class)
+    val roles: MutableSet<AccountRole> = mutableSetOf()
 }
