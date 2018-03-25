@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>Kwetter</title>
@@ -12,5 +11,32 @@
                 <input type="submit" value="Sign Out"/>
             </form>
         </header>
+
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Handle</th>
+                        <th>Username</th>
+                        <th>Followers</th>
+                        <th>Following</th>
+                        <th>Tweets</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.handle}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${#lists.size(user.followers)}"></td>
+                        <td th:text="${#lists.size(user.following)}"></td>
+                        <td th:text="${#lists.size(user.tweets)}"></td>
+                        <td>
+                            <a th:text="View" th:href="@{/tweets/} + ${user.id}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
     </body>
 </html>
