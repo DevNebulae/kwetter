@@ -4,7 +4,7 @@ import edu.fontys.kwetter.account.role.AccountRole
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class AccountService {
@@ -14,11 +14,11 @@ class AccountService {
     @Autowired
     private lateinit var passwordEncoder: PasswordEncoder
 
-    fun follow(follower: Account, toBeFollowed: Account) {
+    fun follow(follower: Account, toBeFollowed: Account): Account {
         follower.following.add(toBeFollowed)
         toBeFollowed.followers.add(follower)
 
-        repository.saveAll(listOf(follower, toBeFollowed))
+        return repository.save(follower)
     }
 
     fun register(dto: AccountDto): Account {
