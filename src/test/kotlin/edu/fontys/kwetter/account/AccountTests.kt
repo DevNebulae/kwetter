@@ -17,7 +17,7 @@ class AccountTests {
 
     @Test
     fun constructor() {
-        val account = Account("DevNebulae", "Ivo Huntjens")
+        val account = Account("DevNebulae", "Ivo Huntjens", "Example password")
         repository.save(account)
 
         assertThat(repository.count()).isEqualTo(1)
@@ -25,8 +25,8 @@ class AccountTests {
 
     @Test(expected = DataIntegrityViolationException::class)
     fun unique_handle() {
-        val account1 = Account("DevNebulae", "Ivo Huntjens")
-        val account2 = Account("DevNebulae", "Not Ivo Huntjens")
+        val account1 = Account("DevNebulae", "Ivo Huntjens", "Example password")
+        val account2 = Account("DevNebulae", "Not Ivo Huntjens", "Example password")
 
         repository.saveAll(listOf(account1, account2))
 
@@ -35,7 +35,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun short_handle() {
-        val account = Account("De", "")
+        val account = Account("De", "", "Example password")
         repository.save(account)
 
         repository.findAll()
@@ -43,7 +43,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun long_handle() {
-        val account = Account("a".repeat(33), "Ivo Huntjens")
+        val account = Account("a".repeat(33), "Ivo Huntjens", "Example password")
         repository.save(account)
 
         repository.findAll()
@@ -51,7 +51,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun blank_username() {
-        val account = Account("DevNebulae", "     \r\n\t     ")
+        val account = Account("DevNebulae", "     \r\n\t     ", "Example password")
         repository.save(account)
 
         repository.findAll()
@@ -59,7 +59,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun long_username() {
-        val account = Account("DevNebulae", "a".repeat(49))
+        val account = Account("DevNebulae", "a".repeat(49), "Example password")
         repository.save(account)
 
         repository.findAll()
@@ -67,7 +67,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun long_biography() {
-        val account = Account("DevNebulae", "Ivo Huntjens")
+        val account = Account("DevNebulae", "Ivo Huntjens", "Example password")
         account.biography = "a".repeat(141)
 
         repository.save(account)
@@ -77,7 +77,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun long_location() {
-        val account = Account("DevNebulae", "Ivo Huntjens")
+        val account = Account("DevNebulae", "Ivo Huntjens", "Example password")
         account.location = "a".repeat(65)
 
         repository.save(account)
@@ -87,7 +87,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun long_photourl() {
-        val account = Account("DevNebulae", "Ivo Huntjens")
+        val account = Account("DevNebulae", "Ivo Huntjens", "Example password")
         account.photoURL = "a".repeat(65)
 
         repository.save(account)
@@ -97,7 +97,7 @@ class AccountTests {
 
     @Test(expected = ConstraintViolationException::class)
     fun long_websiteurl() {
-        val account = Account("DevNebulae", "Ivo Huntjens")
+        val account = Account("DevNebulae", "Ivo Huntjens", "Example password")
         account.websiteURL = "a".repeat(65)
 
         repository.save(account)

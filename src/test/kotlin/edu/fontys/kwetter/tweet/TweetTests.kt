@@ -22,7 +22,7 @@ class TweetTests {
 
     @Test
     fun constructor() {
-        val account = accountRepository.save(Account("DevNebulae", "Ivo Huntjens"))
+        val account = accountRepository.save(Account("DevNebulae", "Ivo Huntjens", "Example password"))
         val tweet = Tweet(account, "Works great, doesn't it?")
 
         tweetRepository.save(tweet)
