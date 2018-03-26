@@ -46,7 +46,7 @@ class Account(
     @ManyToMany
     val liked: MutableSet<Tweet> = mutableSetOf()
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     val tweets: MutableList<Tweet> = mutableListOf()
 
     @ElementCollection(targetClass = AccountRole::class)
