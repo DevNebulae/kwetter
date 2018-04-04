@@ -10,6 +10,10 @@
 
         <div th:if="${param.logout}">You have been logged out.</div>
 
+        <nav>
+            <a th:href="@{/register}">Register</a>
+        </nav>
+
         <form th:action="@{/login}" method="post">
             <div>
                 <label>Username <input type="text" name="username"/></label>
