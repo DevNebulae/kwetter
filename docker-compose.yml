@@ -1,5 +1,16 @@
 version: '3'
 services:
+  keycloak:
+    image: jboss/keycloak:3.4.3.Final
+    # Map the port of Keycloak to a different port than 8080 due to port
+    # conflicts with Tomcat.
+    ports:
+      - 8082:8080
+    # Choose a randomized username and -password when creating it in a
+    # production environment to prevent guessing of the credentials.
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
   postgres:
     image: postgres:alpine
     ports:
