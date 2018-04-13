@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/kwetter
+    username: kwetter
+    password: E24Hhla1xEy4UGXcJ0mGb9dMhVLxrrrl
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      temp.use_jdbc_metadata_defaults: false
+  output:
+    ansi:
+      enabled: always
