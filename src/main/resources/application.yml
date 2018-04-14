@@ -1,0 +1,36 @@
+keycloak-client:
+  server-url: http://localhost:8082/auth
+  realm: kwetter
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/kwetter
+    username: kwetter
+    password: E24Hhla1xEy4UGXcJ0mGb9dMhVLxrrrl
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      temp.use_jdbc_metadata_defaults: false
+  output:
+    ansi:
+      enabled: always
+  security:
+    oauth2:
+      client:
+        registration:
+          kwetter:
+            client-id: kwetter-app
+            client-secret: a0fe1b28-02f1-4751-a4eb-a72f78882a47
+            client-name: Kwetter back-end
+            provider: keycloak
+            scope: openid, profile
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+        provider:
+          keycloak:
+            token-uri: ${keycloak-client.server-url}/realms/${keycloak-client.realm}/protocol/openid-connect/token
+            authorization-uri: ${keycloak-client.server-url}/realms/${keycloak-client.realm}/protocol/openid-connect/auth
+            user-info-uri: ${keycloak-client.server-url}/realms/${keycloak-client.realm}/protocol/openid-connect/userinfo
+            jwk-set-uri: ${keycloak-client.server-url}/realms/${keycloak-client.realm}/protocol/openid-connect/certs
+            user-name-attribute: preferred_username

@@ -20,6 +20,7 @@
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.0.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-cache:2.0.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-data-jpa:2.0.0.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-data-rest:2.0.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-hateoas:2.0.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-security:2.0.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:2.0.0.RELEASE" />
@@ -38,6 +39,8 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:5.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.postgresql:postgresql:42.2.1" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:2.0.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-webmvc:3.0.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-core:3.0.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.hateoas:spring-hateoas:0.24.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:5.0.3.RELEASE" />
@@ -66,8 +69,8 @@
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-logging:2.0.0.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-orm:5.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:5.0.4.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:2.0.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-tx:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-commons:2.0.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-beans:5.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:5.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:5.0.4.RELEASE" />
@@ -93,14 +96,12 @@
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.4" />
           <element id="library" level="project" name="Gradle: org.jetbrains:annotations:13.0" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jcl:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.atteo:evo-inflector:1.2.2" />
           <element id="library" level="project" name="Gradle: org.attoparser:attoparser:2.0.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.unbescape:unbescape:1.1.5.RELEASE" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-api:2.10.0" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-rest/2.0.0.RELEASE/ebf929e1d4ba783f3e32459fe8d29cb61ddbb92/spring-boot-starter-data-rest-2.0.0.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-rest-webmvc/3.0.5.RELEASE/760f62765b03fbbc402ae8910da28dc336f02e7d/spring-data-rest-webmvc-3.0.5.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-rest-core/3.0.5.RELEASE/3e806c4587efe30303585c48e40d6cd08092aced/spring-data-rest-core-3.0.5.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.atteo/evo-inflector/1.2.2/2551aad98d65ac5464d81fe05f0e1516cfe471c9/evo-inflector-1.2.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jsonwebtoken/jjwt/0.9.0/64e3ed8a5f0bc93ecea592a0b3280f995efbdfe9/jjwt-0.9.0.jar" />
         </element>
       </element>
     </root>
