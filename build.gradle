@@ -47,6 +47,7 @@ configurations {
 }
 
 dependencies {
+    compile('org.keycloak:keycloak-core:3.4.3.Final')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-cache')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
