@@ -22,6 +22,5 @@ class Tweet(
     @NotNull
     val author = author
 
-    @ManyToMany(mappedBy = "liked")
-    val likes: MutableSet<Account> = mutableSetOf()
+    val likes: MutableSet<String> = mutableSetOf()
 }
