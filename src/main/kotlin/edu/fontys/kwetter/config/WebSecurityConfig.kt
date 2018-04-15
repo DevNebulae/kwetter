@@ -1,49 +1,50 @@
 package edu.fontys.kwetter.config
 
-import edu.fontys.kwetter.account.authentication.AccountDetailService
-import edu.fontys.kwetter.account.role.AccountRole
+import org.keycloak.adapters.springsecurity.KeycloakConfiguration
+import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.config.http.SessionCreationPolicy
-import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.DEFAULT_AUTHORIZATION_REQUEST_BASE_URI
+import org.springframework.security.core.session.SessionRegistryImpl
+import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy
+import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy
+import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver
+import org.keycloak.adapters.KeycloakConfigResolver
 
 
-@Configuration
-@EnableWebSecurity
-class WebSecurityConfig {
-    @Bean
-    fun passwordEncoder(): PasswordEncoder {
-        return BCryptPasswordEncoder()
+
+
+@KeycloakConfiguration
+class WebSecurityConfig : KeycloakWebSecurityConfigurerAdapter() {
+    @Throws(Exception::class)
+    override fun configure(http: HttpSecurity) {
+        super.configure(http)
+        http
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated()
+    }
+
+    /**
+     * Registers the KeycloakAuthenticationProvider with the authentication manager.
+     */
+    @Autowired
+    @Throws(Exception::class)
+    fun configureGlobal(auth: AuthenticationManagerBuilder) {
+        auth.authenticationProvider(keycloakAuthenticationProvider())
     }
 
     @Bean
-    fun webSecurityConfigurer(@Value("\${keycloak-client.realm}") realm: String): WebSecurityConfigurerAdapter {
-        return object : WebSecurityConfigurerAdapter() {
-            public override fun configure(http: HttpSecurity) {
-                http
-                        .csrf()
-                        .disable()
+    fun KeycloakConfigResolver(): KeycloakConfigResolver {
+        return KeycloakSpringBootConfigResolver()
+    }
 
-                http
-                        .authorizeRequests()
-                        .anyRequest()
-                        .authenticated()
-                        .and()
-                        // This is the point where OAuth2 login of Spring 5 gets enabled
-                        .oauth2Login()
-                        // I don't want a page with different clients as login options
-                        // So i use the constant from OAuth2AuthorizationRequestRedirectFilter
-                        // plus the configured realm as immediate redirect to Keycloak
-                        .loginPage("$DEFAULT_AUTHORIZATION_REQUEST_BASE_URI/$realm")
-            }
-        }
+    /**
+     * Defines the session authentication strategy.
+     */
+    @Bean
+    override fun sessionAuthenticationStrategy(): SessionAuthenticationStrategy {
+        return RegisterSessionAuthenticationStrategy(SessionRegistryImpl())
     }
 }
