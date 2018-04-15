@@ -17,7 +17,8 @@ spring:
     hibernate:
       ddl-auto: create-drop
     properties:
-      temp.use_jdbc_metadata_defaults: false
+      temp:
+        use_jdbc_metadata_defaults: false
   output:
     ansi:
       enabled: always
