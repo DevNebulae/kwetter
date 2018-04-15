@@ -2,9 +2,9 @@ package edu.fontys.kwetter.account
 
 import edu.fontys.kwetter.account.role.AccountRole
 import edu.fontys.kwetter.tweet.Tweet
+import org.hibernate.validator.constraints.NotBlank
 import java.io.Serializable
 import javax.persistence.*
-import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 @Entity
