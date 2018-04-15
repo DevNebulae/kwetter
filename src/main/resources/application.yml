@@ -6,6 +6,7 @@ keycloak:
   credentials:
     secret: wqIwja45PSkAWaU01z6SGWT2B8q97kKUcpX2ujZS0DgO4KQyyGecZJvxyRbsEyIm
   use-resource-role-mappings: true
+  cors: true
 spring:
   datasource:
     url: jdbc:postgresql://localhost/kwetter
