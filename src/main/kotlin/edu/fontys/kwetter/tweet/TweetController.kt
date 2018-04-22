@@ -1,5 +1,7 @@
 package edu.fontys.kwetter.tweet
 
+import org.keycloak.KeycloakPrincipal
+import org.keycloak.KeycloakSecurityContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
@@ -16,13 +18,13 @@ class TweetController {
     }
 
     @GetMapping("/timeline")
-    fun timeline() {
-
+    fun timeline(principal: Principal): List<Tweet> {
+        return repository.findByAuthor(principal.name)
     }
 
     @PostMapping
     fun postTweet(principal: Principal, @RequestBody tweet: Tweet): Tweet {
-        val tweet = Tweet(principal.name, tweet.content)
+        val tweet = Tweet(tweet.content, principal.name)
         return repository.save(tweet)
     }
 }
