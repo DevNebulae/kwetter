@@ -1,6 +1,5 @@
 package edu.fontys.kwetter.account
 
-import edu.fontys.kwetter.account.role.AccountRole
 import edu.fontys.kwetter.tweet.Tweet
 import org.hibernate.validator.constraints.NotBlank
 import java.io.Serializable
@@ -48,7 +47,4 @@ class Account(
 
     @OneToMany(mappedBy = "author")
     val tweets: MutableList<Tweet> = mutableListOf()
-
-    @ElementCollection(targetClass = AccountRole::class)
-    val roles: MutableSet<AccountRole> = mutableSetOf()
 }
