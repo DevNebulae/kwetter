@@ -1,5 +1,6 @@
 package edu.fontys.kwetter.config
 
+import org.keycloak.KeycloakSecurityContext
 import org.keycloak.adapters.KeycloakConfigResolver
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver
 import org.keycloak.adapters.springsecurity.KeycloakConfiguration
@@ -13,26 +14,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper
+import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy
+import javax.servlet.http.HttpServlet
+import javax.servlet.http.HttpServletRequest
 
 
 @KeycloakConfiguration
 class WebSecurityConfig : KeycloakWebSecurityConfigurerAdapter() {
-    @Bean
-    fun keycloakAuthenticationProcessingFilterRegistrationBean(filter: KeycloakAuthenticationProcessingFilter): FilterRegistrationBean {
-        val registrationBean = FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
-
-    @Bean
-    fun keycloakPreAuthActionsFilterRegistrationBean(filter: KeycloakPreAuthActionsFilter): FilterRegistrationBean {
-        val registrationBean = FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
-    }
-
     override fun configure(http: HttpSecurity) {
         super.configure(http)
 
@@ -50,6 +40,27 @@ class WebSecurityConfig : KeycloakWebSecurityConfigurerAdapter() {
                 .authenticated()
     }
 
+    @Bean
+    fun keycloakAuthenticationProcessingFilterRegistrationBean(filter: KeycloakAuthenticationProcessingFilter): FilterRegistrationBean {
+        val registrationBean = FilterRegistrationBean(filter);
+        registrationBean.setEnabled(false);
+
+        return registrationBean;
+    }
+
+    @Bean
+    fun keycloakConfigResolver(): KeycloakConfigResolver {
+        return KeycloakSpringBootConfigResolver()
+    }
+
+    @Bean
+    fun keycloakPreAuthActionsFilterRegistrationBean(filter: KeycloakPreAuthActionsFilter): FilterRegistrationBean {
+        val registrationBean = FilterRegistrationBean(filter);
+        registrationBean.setEnabled(false);
+
+        return registrationBean;
+    }
+
     /**
      * Registers the KeycloakAuthenticationProvider with the authentication manager.
      */
@@ -58,11 +69,6 @@ class WebSecurityConfig : KeycloakWebSecurityConfigurerAdapter() {
         val provider = keycloakAuthenticationProvider()
         provider.setGrantedAuthoritiesMapper(SimpleAuthorityMapper())
         auth.authenticationProvider(provider)
-    }
-
-    @Bean
-    fun keycloakConfigResolver(): KeycloakConfigResolver {
-        return KeycloakSpringBootConfigResolver()
     }
 
     /**
