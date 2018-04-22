@@ -1,8 +1,12 @@
 package edu.fontys.kwetter.tweet
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import edu.fontys.kwetter.account.Account
+import edu.fontys.kwetter.conversion.InstantConverter
 import org.hibernate.validator.constraints.NotBlank
 import java.io.Serializable
+import java.time.Instant
+import java.time.ZonedDateTime
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
@@ -24,4 +28,7 @@ class Tweet(
 
     @ManyToMany(mappedBy = "liked")
     val likes: MutableSet<Account> = mutableSetOf()
+
+    @Convert(converter = InstantConverter::class)
+    val postedAt = Instant.now()
 }
