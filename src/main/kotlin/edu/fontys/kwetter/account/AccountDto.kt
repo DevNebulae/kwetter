@@ -1,7 +1,9 @@
 package edu.fontys.kwetter.account
 
 data class AccountDto(
-        var handle: String,
-        var username: String,
-        var password: String
+        val id: String,
+        val username: String,
+        val enabled: Boolean,
+        val firstName: String,
+        val lastName: String
 )
