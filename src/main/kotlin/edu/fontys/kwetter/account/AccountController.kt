@@ -2,9 +2,10 @@ package edu.fontys.kwetter.account
 
 import org.keycloak.admin.client.Keycloak
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.*
-import java.security.Principal
-import javax.ws.rs.PathParam
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/accounts")

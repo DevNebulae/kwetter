@@ -1,7 +1,5 @@
 package edu.fontys.kwetter.tweet
 
-import org.keycloak.KeycloakPrincipal
-import org.keycloak.KeycloakSecurityContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
