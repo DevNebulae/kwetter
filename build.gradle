@@ -2,6 +2,7 @@ buildscript {
 	ext {
         keycloakVersion = '3.4.3.Final'
 		kotlinVersion = '1.2.40'
+        resteasyVersion = '3.5.1.Final'
 		springBootVersion = '1.5.12.RELEASE'
 	}
 	repositories {
@@ -54,6 +55,8 @@ dependencyManagement {
 }
 
 dependencies {
+    compile("org.jboss.resteasy:resteasy-jackson2-provider:$resteasyVersion")
+    compile("org.jboss.resteasy:resteasy-client:$resteasyVersion")
     compile("org.keycloak:keycloak-admin-client:$keycloakVersion")
     compile("org.keycloak:keycloak-spring-boot-starter:$keycloakVersion")
 	compile('org.springframework.boot:spring-boot-starter-actuator')
