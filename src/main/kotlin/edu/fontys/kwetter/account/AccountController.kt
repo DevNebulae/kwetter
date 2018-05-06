@@ -13,6 +13,12 @@ class AccountController {
     @Autowired
     private lateinit var keycloak: Keycloak
 
+    @GetMapping
+    fun getAll(): List<AccountDto> {
+        val users = keycloak.realm("kwetter").users().list().map { AccountDto(it.id, it.username, it.isEnabled, it.firstName, it.lastName) }
+        return users
+    }
+
     @GetMapping("/{id}")
     fun getAccount(@PathVariable("id") id: String): AccountDto {
         val user = keycloak.realm("kwetter").users().get(id).toRepresentation()

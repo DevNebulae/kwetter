@@ -1,7 +1,7 @@
 buildscript {
 	ext {
         keycloakVersion = '3.4.3.Final'
-		kotlinVersion = '1.2.40'
+		kotlinVersion = '1.2.41'
         resteasyVersion = '3.5.1.Final'
 		springBootVersion = '1.5.12.RELEASE'
 	}

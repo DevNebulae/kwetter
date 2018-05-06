@@ -1,6 +1,5 @@
 package edu.fontys.kwetter.tweet
 
-import edu.fontys.kwetter.account.Account
 import edu.fontys.kwetter.conversion.InstantConverter
 import org.hibernate.validator.constraints.NotBlank
 import java.io.Serializable
@@ -24,8 +23,8 @@ class Tweet(
     @NotNull
     val author = author
 
-    @ManyToMany(mappedBy = "liked")
-    val likes: MutableSet<Account> = mutableSetOf()
+    @ElementCollection
+    val likes: MutableSet<String> = mutableSetOf()
 
     @Convert(converter = InstantConverter::class)
     val postedAt = Instant.now()

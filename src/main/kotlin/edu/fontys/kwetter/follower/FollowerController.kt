@@ -1,10 +1,7 @@
 package edu.fontys.kwetter.follower
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
 @RestController
@@ -13,9 +10,25 @@ class FollowerController {
     @Autowired
     private lateinit var repository: FollowerRepository
 
-    @PutMapping("/{id}/follow")
+    @PostMapping("/{id}/follow")
     fun follow(@PathVariable("id") id: String, principal: Principal): Follower {
         val follower = Follower(principal.name, id)
         return repository.save(follower)
+    }
+
+    @PostMapping("/{id}/unfollow")
+    fun unfollow(@PathVariable("id") id: String, principal: Principal) {
+        val follower = repository.findByFollowedAndFollower(id, principal.name)
+        repository.delete(follower.id)
+    }
+
+    @GetMapping("/{id}/followers")
+    fun followers(@PathVariable("id") id: String): List<Follower> {
+        return repository.findByFollowed(id)
+    }
+
+    @GetMapping("/{id}/following")
+    fun following(@PathVariable("id") id: String): List<Follower> {
+        return repository.findByFollower(id)
     }
 }
