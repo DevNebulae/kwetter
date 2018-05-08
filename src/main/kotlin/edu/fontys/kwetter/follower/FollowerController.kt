@@ -10,6 +10,11 @@ class FollowerController {
     @Autowired
     private lateinit var repository: FollowerRepository
 
+    @GetMapping("/followers-list")
+    fun getAll(): List<Follower> {
+        return repository.findAll()
+    }
+
     @PostMapping("/{id}/follow")
     fun follow(@PathVariable("id") id: String, principal: Principal): Follower {
         val follower = Follower(principal.name, id)

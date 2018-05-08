@@ -20,6 +20,11 @@ class TweetController {
         return repository.findByAuthor(principal.name)
     }
 
+    @GetMapping("/timeline/{accountId}")
+    fun timelineAccount(@PathVariable("accountId") accountId: String): List<Tweet> {
+        return repository.findByAuthor(accountId)
+    }
+
     @PostMapping
     fun postTweet(principal: Principal, @RequestBody tweet: Tweet): Tweet {
         val tweet = Tweet(tweet.content, principal.name)
