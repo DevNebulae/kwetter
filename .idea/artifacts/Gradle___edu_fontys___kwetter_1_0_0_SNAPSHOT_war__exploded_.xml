@@ -27,6 +27,7 @@
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-data-rest:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-hateoas:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-security:1.5.12.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-websocket:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-kotlin:2.8.11.1" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.11" />
@@ -34,23 +35,25 @@
           <element id="library" level="project" name="Gradle: org.keycloak:keycloak-authz-client:3.4.3.Final" />
           <element id="library" level="project" name="Gradle: org.keycloak:keycloak-spring-security-adapter:3.4.3.Final" />
           <element id="library" level="project" name="Gradle: org.keycloak:keycloak-core:3.4.3.Final" />
-          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-actuator:1.5.12.RELEASE" />
-          <element id="library" level="project" name="Gradle: com.h2database:h2:1.4.197" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-webmvc:2.6.11.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.postgresql:postgresql:9.4.1212.jre7" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.8.11" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.11" />
           <element id="library" level="project" name="Gradle: com.github.fge:json-patch:1.3" />
           <element id="library" level="project" name="Gradle: com.github.fge:jackson-coreutils:1.0" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.11.1" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.41" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.2.41" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.11" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-rest-core:2.6.11.RELEASE" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
           <element id="library" level="project" name="Gradle: org.jboss.resteasy:resteasy-jaxrs:3.5.1.Final" />
           <element id="library" level="project" name="Gradle: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:1.0.0.Final" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:5.0.12.Final" />
+          <element id="library" level="project" name="Gradle: com.h2database:h2:1.4.197" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.0.12.Final" />
+          <element id="library" level="project" name="Gradle: org.postgresql:postgresql:9.4.1212.jre7" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.3.6.Final" />
           <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
           <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.2.Final" />
@@ -66,7 +69,9 @@
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:4.2.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:4.2.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.16.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-websocket:4.3.16.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.16.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-messaging:4.3.16.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:1.5.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:4.2.5.RELEASE" />
@@ -74,6 +79,8 @@
           <element id="library" level="project" name="Gradle: javax.transaction:javax.transaction-api:1.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.3.16.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.16.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.41" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.41" />
           <element id="library" level="project" name="Gradle: org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec:1.0.0.Final" />
           <element id="library" level="project" name="Gradle: org.reactivestreams:reactive-streams:1.0.2" />
           <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
@@ -120,10 +127,6 @@
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.29" />
           <element id="library" level="project" name="Gradle: org.atteo:evo-inflector:1.2.2" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.11" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.2.41/5e34ca185bbea7452d704ed3537a22314a809383/kotlin-stdlib-jdk8-1.2.41.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.41/e4d6728a4fa55dbfb510aeea25c072c7c51d94/kotlin-reflect-1.2.41.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.2.41/d0cfb3ef897c00449e5e696355db9506225fb507/kotlin-stdlib-jdk7-1.2.41.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.41/7e34f009642702250bccd9e5255866f408962a05/kotlin-stdlib-1.2.41.jar" />
         </element>
       </element>
     </root>

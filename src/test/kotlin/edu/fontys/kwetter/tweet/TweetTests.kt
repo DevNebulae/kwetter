@@ -1,6 +1,5 @@
 package edu.fontys.kwetter.tweet
 
-import edu.fontys.kwetter.account.Account
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -11,6 +11,8 @@ services:
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
+    volumes:
+      - ./keycloak/adminlte:/opt/jboss/keycloak/themes/adminlte
   postgres:
     image: postgres:alpine
     ports:
